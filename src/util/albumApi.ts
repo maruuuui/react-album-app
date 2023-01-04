@@ -32,9 +32,10 @@ export async function createAlbum(
   title: string,
   memo: string,
   base64Image: string,
-  contentType: string
+  contentType: string,
+  fileName:string
 ) {
-  console.log(`createAlbum title:${title},memo:${memo},base64Image:${base64Image}`)
+  console.log(`createAlbum title:${title},memo:${memo},fileName:${fileName},base64Image:${base64Image}`)
   try {
     const res = await axios.post(
       url,
@@ -42,7 +43,8 @@ export async function createAlbum(
         title,
         memo,
         image: base64Image,
-        contentType
+        type: contentType,
+        file_name: fileName,
       },
       { headers: requestHeader },
     )
