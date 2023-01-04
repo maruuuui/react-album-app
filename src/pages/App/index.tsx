@@ -23,6 +23,7 @@ function App() {
       setAlbumDataArray(result)
     } catch (error) {
       console.log(error)
+      setAlbumDataArray([])
     }
   }
 

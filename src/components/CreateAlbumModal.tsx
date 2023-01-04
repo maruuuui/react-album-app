@@ -36,11 +36,16 @@ function CreateAlbumModal(props: CreateAlbumModalProps) {
 
     if (validated) {
       props.setIsLoading(true)
-      await createAlbum(title, memo, base64Image, imageContentType)
-      props.setIsLoading(false)
-
-      props.setShouldFetchAlbumData()
-      props.closeModal()
+      try {
+        await createAlbum(title, memo, base64Image, imageContentType, imageFileName)
+        props.setIsLoading(false)
+  
+        props.setShouldFetchAlbumData()
+        props.closeModal()
+      } catch (error) {
+        console.log(error);
+        props.setIsLoading(false)
+      }
     }
   }
   return (
