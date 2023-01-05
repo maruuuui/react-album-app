@@ -27,14 +27,14 @@ function App() {
     }
   }
 
-  // Album完了確認モーダル関係
+  // Album削除確認モーダル関係
   const [deletelbumModalIsOpen, setDeleteAlbumModalIsOpen] =
     useState<boolean>(false)
   const [modalContentId, setModalContentId] = useState<string>('')
   const [modalContentTitle, setModalContentTitle] = useState<string>('')
 
   const openModalFunc = (id: string, title: string) => {
-    console.log(`id:${id}, title:${title} の完了確認モーダルを開く`)
+    console.log(`id:${id}, title:${title} の削除確認モーダルを開く`)
     setModalContentId(id)
     setModalContentTitle(title)
     setDeleteAlbumModalIsOpen(true)

@@ -6,8 +6,9 @@ import 'pages/App/components/AlbumCard.css'
 type AlbumCardProps = {
   id: string
   title: string
-  deadline: string
+  createdAt: string
   memo: string
+  imagePath: string
   openModalFunc: (id: string, title: string) => void
 }
 
@@ -15,19 +16,21 @@ function AlbumCard(props: AlbumCardProps) {
   return (
     <Card>
       <Card.Body>
+        <Card.Img variant="top" src={props.imagePath} />
+
         <Card.Title>{props.title}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">
-          期限:{props.deadline}
+          登録日時:{props.createdAt}
         </Card.Subtitle>
         <Card.Text>{props.memo}</Card.Text>
-        {/* Album完了確認モーダル(#askDeleteAlbumModal)を表示するボタン */}
+        {/* Album削除確認モーダル(#askDeleteAlbumModal)を表示するボタン */}
         <Button
           variant="primary"
           onClick={() => {
             props.openModalFunc(props.id, props.title)
           }}
         >
-          完了！
+          削除する
         </Button>
       </Card.Body>
     </Card>

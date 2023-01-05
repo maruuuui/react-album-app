@@ -18,8 +18,9 @@ function AlbumCards(props: AlbumCardsProps) {
                 <AlbumCard
                   id={albumData.id}
                   title={albumData.title}
-                  deadline={albumData.deadline}
+                  createdAt={albumData.createdAt}
                   memo={albumData.memo}
+                  imagePath={albumData.imagePath}
                   openModalFunc={props.openModalFunc}
                 />
               </Col>

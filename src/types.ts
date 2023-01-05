@@ -1,7 +1,7 @@
 export type Album = {
     id: string
     title: string
-    deadline: string
+    createdAt: string
     memo: string
-  }
-  
+    imagePath: string
+}

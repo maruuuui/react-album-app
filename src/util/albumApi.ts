@@ -10,18 +10,35 @@ const requestHeader = {
   'Content-Type': 'application/json',
 }
 
+type getAlbumDataArrayResponse = {
+  id: string
+  title: string
+  created_at: string
+  memo: string
+  image_path: string
+}
+
+
 export async function getAlbumDataArray() {
   try {
-    const res = await axios.get<Album[]>(url)
+    const res = await axios.get<getAlbumDataArrayResponse[]>(url)
     if (res.status !== 200) {
       throw Error('Albumの取得に失敗しました')
     }
 
     const items = res.data
-    // for (const item of items) {
-    //     console.log(`id:${item.id}`)
-    // }
-    return items
+    const albumDataArray: Album[] = []
+    for (const item of items) {
+        albumDataArray.push({
+          id: item.id,
+          title: item.title,
+          createdAt: item.created_at,
+          memo: item.memo,
+          imagePath: item.image_path,
+        })
+    }
+
+    return albumDataArray
   } catch (err) {
     console.log(err)
     throw Error('Albumの取得に失敗しました')

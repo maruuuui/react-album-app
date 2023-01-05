@@ -25,10 +25,10 @@ function DeleteAlbumModal(props: DeleteAlbumModalProps) {
       <Modal.Header closeButton>
         <Modal.Title>確認</Modal.Title>
       </Modal.Header>
-      <Modal.Body>{props.title}を完了しますか？</Modal.Body>
+      <Modal.Body>{props.title}を削除しますか？</Modal.Body>
       <Modal.Footer>
         <Button variant="primary" onClick={complete}>
-          完了！
+          削除する
         </Button>
       </Modal.Footer>
     </Modal>
