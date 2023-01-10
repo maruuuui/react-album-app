@@ -49,10 +49,10 @@ function App() {
 
   useEffect(() => {
     if (shouldFetchAlbumData) {
+      setShouldFetchAlbumData(false)
       setIsLoading(true)
       fetchAlbumDataArray().then(() => {
         setIsLoading(false)
-        setShouldFetchAlbumData(false)
       })
     }
   }, [shouldFetchAlbumData])
