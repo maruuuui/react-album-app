@@ -10,11 +10,8 @@ import { getAlbumDataArray } from 'util/albumApi'
 function App() {
   // Album自体のデータ
   const [albumDataArray, setAlbumDataArray] = useState<Album[]>([])
+  // バックエンドからAlbumを取得し直す必要があるかを表す変数
   const [shouldFetchAlbumData, setShouldFetchAlbumData] = useState<boolean>(true)
-
-  const setShouldFetchTrue = () => {
-    setShouldFetchAlbumData(true)
-  }
 
   const fetchAlbumDataArray = async () => {
     try {
@@ -60,7 +57,7 @@ function App() {
   return (
     <>
       <Layout
-        setShouldFetchTrue={setShouldFetchTrue}
+        setShouldFetchTrue={()=>{setShouldFetchAlbumData(true)}}
         isLoading={isLoading}
         setIsLoading={setIsLoading}
         deletelbumModalIsOpen={deletelbumModalIsOpen}

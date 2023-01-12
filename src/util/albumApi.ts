@@ -10,7 +10,7 @@ const requestHeader = {
   'Content-Type': 'application/json',
 }
 
-type getAlbumDataArrayResponse = {
+type GetAlbumDataArrayResponse = {
   id: string
   title: string
   created_at: string
@@ -21,7 +21,7 @@ type getAlbumDataArrayResponse = {
 
 export async function getAlbumDataArray() {
   try {
-    const res = await axios.get<getAlbumDataArrayResponse[]>(url)
+    const res = await axios.get<GetAlbumDataArrayResponse[]>(url)
     if (res.status !== 200) {
       throw Error('Albumの取得に失敗しました')
     }
